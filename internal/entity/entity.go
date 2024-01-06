@@ -12,7 +12,6 @@ func (c *Category) AddCourse(id int){
 }
 
 type Course struct {
-
 	ID int
 	Name string
 	CategoryID int

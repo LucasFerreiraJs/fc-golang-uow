@@ -7,6 +7,6 @@ create table if not exists `categories` (
 create table if not exists `courses` (
   id int primary key AUTO_INCREMENT,
   name varchar(255) not null,
-  category_id integer not null
+  category_id integer not null,
   foreign key (category_id) references categories(id)
 );
