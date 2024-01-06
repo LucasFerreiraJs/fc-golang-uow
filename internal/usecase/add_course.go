@@ -21,7 +21,7 @@ type AddCourseUsecase struct {
 }
 
 
-func NewAddCourseUsecase(courseRepository repository.CourseRepositoryInterface, categoryRepository repository.CategoryRepositoryInterface) error {
+func NewAddCourseUsecase(courseRepository repository.CourseRepositoryInterface, categoryRepository repository.CategoryRepositoryInterface) *AddCourseUsecase {
 	return &AddCourseUsecase {
 		CourseRepository: courseRepository,
 		CategoryRepository: categoryRepository,
@@ -44,8 +44,8 @@ func (a *AddCourseUsecase) Execute(ctx context.Context, input InputUsecase) erro
 		Name: input.CourseName,
 		CategoryID: input.CourseCategoryID,
 	}
-	err := a.CourseRepository.Insert(ctx, course)
-	if != nil {
+	err = a.CourseRepository.Insert(ctx, course)
+	if err != nil {
 
 		return err
 	}
